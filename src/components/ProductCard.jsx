@@ -16,7 +16,7 @@ const ProductCard = ({
   show
 }) => {
   return (
-    <Card className={show ? "d-flex flex-row":"d-flex mb-2 "} style={{ width: "30rem" }}>
+    <Card className={show ? "d-flex flex-row mb-2":"d-flex mb-2 "} style={{ width: "30rem" }}>
       <Card.Img variant="top" src={image} className={show ? "w-50":"w-auto"} />
       <Card.Body>
         <Card.Title className="d-flex align-items-start ">{name}</Card.Title>
