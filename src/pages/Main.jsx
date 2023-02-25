@@ -46,19 +46,18 @@ const Main = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       <Header show={show} setShow={setShow} />
-      <Container className={show ? "d-flex ":"" }>
-
-      {show && <AddProduct show={show} postItem={postItem} />}
-      <CardTotal
-        deleteItem={deleteItem}
-        handlePlus={handlePlus}
-        handleMınus={handleMınus}
-        data={data}
-        show={show}
-        />
-        </Container>
+      <Container className={show ? "d-flex " : ""}>
+        {show && <AddProduct show={show} postItem={postItem} />}
+        {data ? <CardTotal
+          deleteItem={deleteItem}
+          handlePlus={handlePlus}
+          handleMınus={handleMınus}
+          data={data}
+          show={show}
+        /> : "No products data..."}
+      </Container>
     </div>
   );
 };
