@@ -6,7 +6,6 @@ const CardTotal = ({ deleteItem, data, handleMınus, handlePlus, show }) => {
   return (
     <div>
       {data.map((item) => {
-        console.log(item);
         return (
           <ProductCard
             key={item.id}
