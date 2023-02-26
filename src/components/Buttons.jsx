@@ -9,7 +9,7 @@ const Buttons = ({ show, setShow, text }) => {
         onClick={() => {
           setShow(!show);
         }}
-        variant={show ? "warning" : "primary"}
+        variant={`${show ? "warning" : "primary"}`}
       >
         {text} Product Bar
       </Button>

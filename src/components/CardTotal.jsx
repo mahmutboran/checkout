@@ -31,7 +31,6 @@ const CardTotal = ({ deleteItem, data, handleMınus, handlePlus, show }) => {
           <p>$ {(data.reduce((tax,item)=>{
             return(
               tax+=((((item.price*item.dampingRate)*item.amount)*0.18))
-        
             )
           },0)).toFixed(2)}</p>
         </Container>
@@ -43,7 +42,7 @@ const CardTotal = ({ deleteItem, data, handleMınus, handlePlus, show }) => {
           <p>Total</p>
           <p>${((data.reduce((tax,item)=>{
             return(
-              tax+=(Number((((item.price*item.dampingRate)*item.amount)*0.18)))
+              tax+=((((item.price*item.dampingRate)*item.amount)*0.18))
             )
           },0))+(data.reduce((subTotal,item)=>{
             return(

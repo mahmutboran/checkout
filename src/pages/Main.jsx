@@ -6,6 +6,7 @@ import axios from "axios";
 import { Container } from "react-bootstrap";
 
 const Main = () => {
+
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const baseUrl = "https://63fa26f9897af748dcca1b5e.mockapi.io/item";
@@ -17,10 +18,12 @@ const Main = () => {
 
   const handleMınus = async (id) => {
     const { data } = await axios.get(baseUrl + "/" + id);
-    await axios.put(baseUrl + "/" + id, {
-      amount: data.amount - 1,
-    });
-    getData();
+    if (data.amount) {
+      await axios.put(baseUrl + "/" + id, {
+        amount: data.amount - 1,
+      });
+      getData();
+    }
   };
 
   const handlePlus = async (id) => {
@@ -48,15 +51,16 @@ const Main = () => {
   return (
     <div>
       <Header show={show} setShow={setShow} />
-      <Container className={show ? "d-flex " : ""}>
+      <Container className={`${(show && data.length) ? "d-flex " :  ""}`}>
         {show && <AddProduct show={show} postItem={postItem} />}
-        {data ? <CardTotal
+
+        {data.length ? <CardTotal
           deleteItem={deleteItem}
           handlePlus={handlePlus}
           handleMınus={handleMınus}
           data={data}
           show={show}
-        /> : "No products data..."}
+        /> : <p className="text-danger" >  No products data...</p>}
       </Container>
     </div>
   );
